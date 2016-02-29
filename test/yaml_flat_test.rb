@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 gem 'minitest', '>= 5.0.0'
 
-require 'pathname'
 require 'pry'
 require 'minitest/autorun'
 
@@ -17,17 +16,17 @@ class YamlFlatTest < Minitest::Test
   end
 
   def test_yaml_hash
-    assert_equal yaml_flat.yaml_hash, 'simple' => {
-      'one' => 1,
-      'two' => 2
-    }
+    assert_equal(
+      yaml_flat.yaml_hash,
+      'simple' => { 'one' => 1, 'two' => 2 }
+    )
   end
 
   def test_flat_file
     skip
-    assert_equal yaml_flat.flat_yaml_hash, {
-      'simple.one' => 1,
-      'simple.two' => 2
-    }
+    assert_equal(
+      yaml_flat.flat_yaml_hash,
+      { 'simple.one' => 1, 'simple.two' => 2 }
+    )
   end
 end
