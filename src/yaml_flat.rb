@@ -10,22 +10,6 @@ class YamlFlat
     @yaml_hash = YAML.load(yaml_string)
   end
 
-  def find_value(hash, current_key, previous_key)
-    result = hash[current_key]
-    if result.is_a?(Hash)
-      result.keys.map do |next_key|
-        find_value(result, next_key, current_key)
-      end
-    else
-      if previous_key
-        { "#{previous_key}.#{current_key}" => result }
-      else
-        { current_key => result }
-      end
-    end
-  end
-end
-
 =begin
 PSEUDO
 

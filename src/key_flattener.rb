@@ -13,10 +13,17 @@ class KeyFlattener
 
   def key_value_pair
     return current_pair if value_found?
-
+    flattened_keys = result.keys.map do |next_key|
+      KeyFlattener.new(result, next_key, current_key).key_value_pair
+    end
+    flattened_keys.reduce(:merge)
   end
 
   def current_pair
-    { current_key => result }
+    if previous_key
+      { "#{previous_key}.#{current_key}" => result }
+    else
+      { current_key => result }
+    end
   end
 end
