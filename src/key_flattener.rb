@@ -1,7 +1,8 @@
+#
 class KeyFlattener
   attr_reader :result, :current_key, :previous_key
 
-  def initialize(hash, current_key, previous_key = nil)
+  def initialize(hash:, current_key:, previous_key: nil)
     @result = hash[current_key]
     @current_key = current_key
     @previous_key = previous_key
@@ -14,7 +15,11 @@ class KeyFlattener
   def key_value_pair
     return current_pair if value_found?
     flattened_keys = result.keys.map do |next_key|
-      KeyFlattener.new(result, next_key, current_key).key_value_pair
+      KeyFlattener.new(
+        hash: result,
+        current_key: next_key,
+        previous_key: current_key
+      ).key_value_pair
     end
     flattened_keys.reduce(:merge)
   end
