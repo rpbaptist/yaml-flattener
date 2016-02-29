@@ -8,7 +8,7 @@ require_relative '../src/yaml_flattener'
 
 class YamlFlattenerTest < Minitest::Test
   def simple_yaml_file
-    File.expand_path('../simple.yml', __FILE__)
+    File.expand_path('../files/simple.yml', __FILE__)
   end
 
   def yaml_flattener
