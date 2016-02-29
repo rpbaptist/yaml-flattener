@@ -19,26 +19,30 @@ class YamlFlattenerTest < Minitest::Test
 
   def test_yaml_hash
     assert_equal(
-      simple_yaml_flattener.yaml_hash,
+      simple_yaml_flattener.hash,
       'simple' => { 'one' => 1, 'two' => 2 }
     )
   end
 
-  def test_simple_flat_yaml_hash
+  def test_simple_flat_hash
     assert_equal(
-      simple_yaml_flattener.flat_yaml_hash,
+      simple_yaml_flattener.flat_hash,
       'simple.one' => 1, 'simple.two' => 2
     )
   end
 
-  def test_multiple_flat_yaml_hash
+  def test_multiple_flat_hash
     assert_equal(
-      multiple_yaml_flattener.flat_yaml_hash,
+      multiple_yaml_flattener.flat_hash,
       'one.a' => 1, 'one.b' => 2, 'two.a' => 3, 'two.b' => 4
     )
   end
 
-  def test_flat_file
-    skip
+  def test_simple_flat_file
+    simple_flat_file = File.expand_path('../files/simple_flat.yml', __FILE__)
+    assert_equal(
+      simple_yaml_flattener.flat_file,
+      File.read(simple_flat_file)
+    )
   end
 end
