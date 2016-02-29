@@ -1,4 +1,6 @@
-#
+# Takes a hash and a key on which to generate a flattened file.
+# The previous_key argument is optional and only used to build nested keys
+# recursively.
 class KeyFlattener
   attr_reader :result, :current_key, :previous_key
 
