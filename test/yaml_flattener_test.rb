@@ -7,25 +7,34 @@ require 'minitest/autorun'
 require_relative '../src/yaml_flattener'
 
 class YamlFlattenerTest < Minitest::Test
-  def simple_yaml_file
-    File.expand_path('../files/simple.yml', __FILE__)
+  def simple_yaml_flattener
+    file = File.expand_path('../files/simple.yml', __FILE__)
+    YamlFlattener.new(file)
   end
 
-  def yaml_flattener
-    YamlFlattener.new(simple_yaml_file)
+  def multiple_yaml_flattener
+    file = File.expand_path('../files/multiple.yml', __FILE__)
+    YamlFlattener.new(file)
   end
 
   def test_yaml_hash
     assert_equal(
-      yaml_flattener.yaml_hash,
+      simple_yaml_flattener.yaml_hash,
       'simple' => { 'one' => 1, 'two' => 2 }
     )
   end
 
-  def test_flat_yaml_hash
+  def test_simple_flat_yaml_hash
     assert_equal(
-      yaml_flattener.flat_yaml_hash,
-      { 'simple.one' => 1, 'simple.two' => 2 }
+      simple_yaml_flattener.flat_yaml_hash,
+      'simple.one' => 1, 'simple.two' => 2
+    )
+  end
+
+  def test_multiple_flat_yaml_hash
+    assert_equal(
+      multiple_yaml_flattener.flat_yaml_hash,
+      'one.a' => 1, 'one.b' => 2, 'two.a' => 3, 'two.b' => 4
     )
   end
 

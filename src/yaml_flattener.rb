@@ -13,8 +13,9 @@ class YamlFlattener
   end
 
   def flat_yaml_hash
-    yaml_hash.map do |key, value|
-      KeyFlattener.new(value, key).key_value_pair
-    end.reduce(:merge)
+    flattened_key_maps = yaml_hash.keys.map do |key|
+      KeyFlattener.new(hash: yaml_hash, current_key: key).key_value_pair
+    end
+    flattened_key_maps.reduce(:merge)
   end
 end
