@@ -41,7 +41,7 @@ class YamlFlattenerTest < Minitest::Test
   def test_simple_flat_file
     simple_flat_file = File.expand_path('../files/simple_flat.yml', __FILE__)
     assert_equal(
-      simple_yaml_flattener.flat_file,
+      simple_yaml_flattener.flat_file_string,
       File.read(simple_flat_file)
     )
   end
