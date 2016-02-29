@@ -1,5 +1,5 @@
 require 'pathname'
-require_relative 'src/yaml_flat'
+require_relative 'src/yaml_flattener'
 
 file = Pathname.new(ARGV[0]).read
 
