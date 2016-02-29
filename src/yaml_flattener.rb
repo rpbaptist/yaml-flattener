@@ -19,8 +19,8 @@ class YamlFlattener
   end
 
   def to_file
-    File.open("#{file_basename}_flat.yml", 'w') do |f|
-      f.write(flat_file_string)
+    File.open("#{file_basename}_flat.yml", 'w') do |file|
+      file.write(flat_file_string)
     end
   end
 end

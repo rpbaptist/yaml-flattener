@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 gem 'minitest', '>= 5.0.0'
-
-require 'pry'
 require 'minitest/autorun'
-
 require_relative '../src/yaml_flattener'
 
 class YamlFlattenerTest < Minitest::Test
