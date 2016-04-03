@@ -20,11 +20,11 @@ class KeyExpanderTest < Minitest::Test
     )
   end
 
-  # def test_nested_key_expansion
-  #   key_expander = KeyExpander.new(hash: { 'test.one' => 1 })
-  #   assert_equal(
-  #     key_expander.keys_and_values,
-  #     'test' =>  { 'one' => 1 }
-  #   )
-  # end
+  def test_nested_key_expansion
+    key_expander = KeyExpander.new(hash: { 'test.one' => 1 })
+    assert_equal(
+      { 'test' =>  { 'one' => 1 } },
+      key_expander.keys_and_values
+    )
+  end
 end
