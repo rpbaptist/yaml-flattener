@@ -1,3 +1,4 @@
+require 'pry'
 # Takes a hash with namespaced keys and expands it to nested key value pairs.
 class KeyExpander
   attr_reader :hash, :nested_value
@@ -11,7 +12,7 @@ class KeyExpander
     hash.map do |key, _value|
       keys = key.split('.')
       last_key = keys.pop
-      current_value = nested_value || hash[last_key]
+      current_value = nested_value || hash[key]
       if keys.count == 0
         { last_key => current_value }
       else
