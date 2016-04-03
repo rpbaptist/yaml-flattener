@@ -10,10 +10,6 @@ class KeyFlattener
     @previous_key = previous_key
   end
 
-  def value_found?
-    !result.is_a?(Hash)
-  end
-
   def key_value_pair
     return current_pair if value_found?
     flattened_keys = result.keys.map do |next_key|
@@ -24,6 +20,10 @@ class KeyFlattener
       ).key_value_pair
     end
     flattened_keys.reduce(:merge)
+  end
+
+  def value_found?
+    !result.is_a?(Hash)
   end
 
   def current_pair
