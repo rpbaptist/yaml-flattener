@@ -1,5 +1,5 @@
 # Takes a hash with namespaced keys and expands it to nested key value pairs.
-class KeyExpander
+class HashExpander
   attr_reader :hash, :nested_value
 
   def initialize(hash:, nested_value: nil)
@@ -17,7 +17,7 @@ class KeyExpander
       else
         current_value = nested_value || hash[key]
         new_hash = { keys.join('.') => { last_key => current_value } }
-        KeyExpander.new(hash: new_hash, nested_value: current_value).keys_and_values
+        self.class.new(hash: new_hash, nested_value: current_value).keys_and_values
       end
     end
     expanded_keys.reduce(:merge)
