@@ -13,7 +13,7 @@ class KeyFlattener
   def key_value_pair
     return current_pair if value_found?
     flattened_keys = result.keys.map do |next_key|
-      KeyFlattener.new(
+      self.class.new(
         hash: result,
         current_key: next_key,
         previous_key: current_key
