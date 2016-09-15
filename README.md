@@ -6,6 +6,33 @@ To use:
 
 `ruby yaml-flattener <example.yml>`
 
-Output will be `example_flat.yml`
+Output file will be `example_flat.yml`
+
+Example:
+
+
+```yaml
+# input
+countries:
+  netherlands:
+    cities:
+      - Rotterdam
+      - Amsterdam
+  germany:
+    cities:
+     - Berlin
+     - Hamburg
+```
+
+```yaml
+# output
+countries.netherlands.cities:
+  - Rotterdam
+  - Amsterdam
+countries.germany.cities:
+  - Berlin
+  - Hamburg
+
+```
 
 TODO: Reverse the process.
