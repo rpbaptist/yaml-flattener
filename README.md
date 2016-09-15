@@ -25,7 +25,7 @@ countries:
 ```
 
 ```yaml
-# output file cities_flat.yml
+# output file: cities_flat.yml
 countries.netherlands.cities:
   - Rotterdam
   - Amsterdam
