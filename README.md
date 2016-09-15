@@ -12,7 +12,7 @@ Example:
 
 
 ```yaml
-# input
+# input file: cities.yml
 countries:
   netherlands:
     cities:
@@ -25,7 +25,7 @@ countries:
 ```
 
 ```yaml
-# output
+# output file cities_flat.yml
 countries.netherlands.cities:
   - Rotterdam
   - Amsterdam
