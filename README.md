@@ -12,7 +12,8 @@ Example:
 
 
 ```yaml
-# input file: cities.yml
+# cities.yml
+
 countries:
   netherlands:
     cities:
@@ -25,7 +26,8 @@ countries:
 ```
 
 ```yaml
-# output file: cities_flat.yml
+# cities_flat.yml
+
 countries.netherlands.cities:
   - Rotterdam
   - Amsterdam
